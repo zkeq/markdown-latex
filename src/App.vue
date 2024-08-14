@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import MarkdownIt from 'markdown-it'
 import mdKatex from '@traptitech/markdown-it-katex'
+import { katex } from "@mdit/plugin-katex";
 import mila from 'markdown-it-link-attributes'
 import hljs from 'highlight.js'
 
@@ -19,7 +20,7 @@ const mdi = new MarkdownIt({
 
 mdi.use(mila, { attrs: { target: '_blank', rel: 'noopener' } })
 mdi.use(mdKatex, { blockClass: 'katexmath-block rounded-3xl p-[10px]', errorColor: ' #cc0000' })
-
+mdi.use(katex); // 只要加了这一行就报错
 function highlightBlock(str, lang) {
   
   return `<pre class="code-block-wrapper"><div class="code-block-header"><div class="left"><div class="circle bg1"></div><div class="circle bg2"></div><div class="circle bg3"></div></div><div class="right"><span class="code-block-header__lang">${lang}</span><span class="code-block-header__copy">${t('chat.copyCode')}</span></div></div><code class="hljs code-block-body ${lang}">${str}</code></pre>`

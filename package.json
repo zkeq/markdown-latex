@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mdit/plugin-katex": "^0.13.0",
     "@traptitech/markdown-it-katex": "^3.6.0",
     "highlight.js": "^11.10.0",
     "markdown-it": "^13.0.1",
